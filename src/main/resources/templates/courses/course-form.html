@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees Directory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Save Employee</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384
+    -T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <h3>Course Directory</h3>
+    <hr>
+    <p class="h4 mb-4">Save Course</p>
+    <form th:action="@{/courses/save}"th:object="${course}"method="post">
+        <!--Add hidden form field to handle the update -->
+        <input type="hidden"th:field="*{id}">
+        <input type="text" th:field="*{title}" class="form-control mb-4 w-25"placeholder="title">
+
+        <button type="submit"class="btn btn-info col-2">Save</button>
+    </form>
+    <hr>
+    <a th:href="@{courses/list}">Back to course list</a>
+</div>
+</body>
+</html>
